@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <script>
+        let user = {
+            name: "Джон",
+            age: 30,
+            sayhello() {
+                alert(`Привет меня зовут + ${name}`)
+            }
+        }
+
+        let buyer = {
+            name: "Джон",
+            age: 35,
+            email: "johndoe@example.com",
+            address: "123 Main Street",
+            creditCard: "1234 5678 9012 3456"
+        }
+
+        let orders = {
+            orderId: 12345,
+            customerName: "Джон",
+            orderDate: "2023-05-29",
+            products: ["Product A", "Product B", "Product C"],
+            totalPrice: 150.50
+        }
+
+        let restaurant = {
+            name: "ПоешьОтдохни",
+            cuisine: "Италия",
+            address: "123 Main Street",
+            phone: "+1 123-456-7890",
+            openingHours: {
+                monday: "9:00 AM - 10:00 PM",
+                tuesday: "9:00 AM - 10:00 PM",
+                wednesday: "9:00 AM - 10:00 PM",
+                thursday: "9:00 AM - 10:00 PM",
+                friday: "9:00 AM - 11:00 PM",
+                saturday: "10:00 AM - 11:00 PM",
+                sunday: "10:00 AM - 10:00 PM"
+            }
+        }
+
+        function User(name) {
+            this.name = name
+        }
+
+        function task1() {
+            user.sayhello();
+        }
+
+        function task2() {
+            alert(`Имя покупателя ${buyer.name}\nВозраст: ${buyer.age}\nКонтакт: ${buyer.email}`)
+        }
+
+        function task3() {
+            var cond = prompt("Для вывода информации используйте:\n1-Пользователи\n2-Заказы\n3-Рестораны")
+
+            switch (cond) {
+                case "1":
+                    alert(`Имя покупателя ${buyer.name}\nВозраст: ${buyer.age}\nКонтакт: ${buyer.email}`)
+                    break
+                case "2":
+                    alert(`Дата заказа ${orders.orderDate}\nПродукты: ${orders.products.join(", ")}\nЦена: ${orders.totalPrice}`)
+                    break
+                case "3":
+                    alert(`Название ресторана ${restaurant.name}\nГород: ${restaurant.cuisine}\nТелефон: ${restaurant.phone}`)
+                    break
+                default:
+                    alert("Вы ввели не верный номер")
+                    break
+            }
+        }
+
+        function task4() {
+            var studArray = []
+            var usName = "0"
+            while (usName != "1") {
+                usName = prompt("Введите имя студента чтобы добавить его в список\nДля выхода введите 1")
+
+                studArray.push(new User(usName))
+            }
+
+            let usNameList = [] 
+            studArray.forEach(el => {
+                usNameList.push("Меня зовут " + el.name)
+            })
+
+            alert(`Список всех студентов\n${usNameList.join("\n")}`)
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="task1()">User.sayHello()</button><br>
+    <button onclick="task2()">Вывод 3 полей объекта покупатель</button><br>
+    <button onclick="task3()">Вывод по условию</button><br>
+    <button onclick="task4()">Контсруктор объекта</button><br>
+</body>
+
+</html>

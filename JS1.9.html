@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <script>
+        const clientSymbol = Symbol("Клиент банка");
+        const workerSymbol = Symbol("Работник клиники");
+        const citizenSymbol = Symbol("Гражданин РФ");
+
+        const bankClient = {
+            [clientSymbol]: "Иван Иванов",
+            accountNumber: "123456789",
+            balance: 5000,
+        };
+
+        const clinicWorker = {
+            [workerSymbol]: "Анна Петрова",
+            position: "Медсестра",
+            department: "Терапия",
+        };
+
+        const russianCitizen = {
+            [citizenSymbol]: "Алексей Смирнов",
+            passportNumber: "123456789",
+            age: 35,
+        };
+
+        let t1 = () => {
+            alert(`Сотрудник банка:\n ${bankClient[clientSymbol]}\n${bankClient.accountNumber}\n${bankClient.balance}`)
+            alert(`Работник клиники:\n ${clinicWorker[workerSymbol]}\n${clinicWorker.position}\n${clinicWorker.department}`)
+            alert(`Житель РФ банка:\n ${russianCitizen[citizenSymbol]}\n${russianCitizen.passportNumber}\n${russianCitizen.age}`)
+        }
+
+
+        let t2 = () => {
+            const number = +prompt('Загадайте цифру до 9', '');
+
+            switch (number) {
+                case 1:
+                    alert('Вы ввели число 1');
+                    break;
+                case 2:
+                    alert('Вы ввели число 2');
+                    break;
+                case 8:
+                case 9:
+                    alert('Вы ввели число 8, а может и 9');
+                    break;
+                default:
+                    alert("Вы ввели что-то другое")
+                    break;
+            }
+        }
+
+        let t3 = () => {
+            var min = Number(prompt("Введите минуту"))
+
+            switch (true) {
+                case min >= 0 && min < 15:
+                    alert('Первая четверть часа');
+                    break;
+                case min >= 15 && min < 30:
+                    alert('Вторая четверть часа');
+                    break;
+                case min >= 30 && min < 45:
+                    alert('Третья четверть часа');
+                    break;
+                case min >= 45 && min < 60:
+                    alert('Четвертая четверть часа');
+                    break;
+                default:
+                    alert('Некорректное значение минут');
+                    break;
+            }
+
+        }
+
+
+        let t4 = () => {
+            const str = prompt("Введите строку")
+            const num = prompt("Введите Телефон")
+            switch (true) {
+                case str[0] === '1' || str[0] === '2' || str[0] === '3':
+                    alert("Первая строка 1 2 или 3")
+                    break
+            }
+
+            if (str.includes(num)) {
+                alert("Ваш телефон есть в строке")
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <button onclick="t1()">Symbol</button>
+    <button onclick="t2()">Switch</button>
+    <button onclick="t3()">Часы</button>
+    <button onclick="t4()">Числа</button>
+</body>
+
+</html>

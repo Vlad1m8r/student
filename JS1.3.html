@@ -1,0 +1,139 @@
+<html>
+
+<head>
+    <script>
+        function task1() {
+            var numbers = []
+
+            for (var i = 0; i < 15; i++) {
+                var randomNumber = Math.floor(Math.random() * (31 - (-10))) + (-10);
+                numbers.push(randomNumber);
+            }
+
+            var numberString = numbers.join(", ")
+            alert("Рандомный массив " + numberString)
+
+
+            var positArr = []
+            var sum = 0
+
+            numbers.forEach(element => {
+                if (element > 0) {
+                    positArr.push(element)
+                    sum += element
+                }
+            });
+
+            var aver = sum / positArr.length
+            alert("Среднее аримф положительных чисел = " + aver)
+        }
+
+        function task2() {
+
+            var numbers = []
+            var len = Number(prompt("Введите кол-во элементов > 10"))
+
+            if (len <= 10) {
+                alert("Вы ввели число меньше 10")
+                return 0
+            }
+
+            for (var i = 0; i <= len; i++) {
+                var randomNumber = Math.floor(Math.random() * (31 - (-10))) + (-10);
+                numbers.push(randomNumber);
+            }
+
+            var numberString = numbers.join(", ")
+            alert("Рандомный массив " + numberString)
+
+            for (i = 0; i < numbers.length; i++) {
+                if (numbers[i] < 0) {
+                    numbers[i] = numbers[i] ** 2
+                }
+            }
+
+            var numberString = numbers.join(", ")
+            alert("Итоговый массив " + numberString)
+        }
+
+        function task3() {
+            var numbers = []
+
+            for (var i = 0; i < 100; i++) {
+                var randomNumber = Math.floor(Math.random() * 21) - 10;
+                numbers.push(randomNumber);
+            }
+
+
+            var numberString = numbers.join(", ")
+            alert("Рандомный массив " + numberString)
+
+            var positArr = []
+            var sum = 0
+
+            numbers.forEach(element => {
+                if (element > 0) {
+                    positArr.push(element)
+                    sum += element
+                }
+            });
+
+
+            var aver = sum / positArr.length
+            alert("Среднее аримф положительных чисел = " + aver)
+
+            var negativArr = []
+            var negativSum = 0
+
+            numbers.forEach(element => {
+                if (element < 0) {
+                    negativArr.push(element)
+                    negativSum += element
+                }
+            });
+
+
+            var aver = negativSum / negativArr.length
+            alert("Среднее аримф отрицательных чисел = " + aver)
+
+            var count = 0
+
+            numbers.forEach(element => {
+                if (element == 0) {
+                    count += 1
+                }
+            });
+
+
+            alert("Число 0 = " + count)
+
+        }
+
+        function task4() {
+            var simulationCount = 1000000;
+            var redCount = 0;
+            var maxRedCount = 0;
+
+            for (var i = 0; i < simulationCount; i++) {
+                var randomValue = Math.floor(Math.random() * 3);
+
+                if (randomValue === 0) {
+                    redCount++;
+                }
+            }
+
+            alert("Максимальное количество выпадений красного значения:" + redCount);
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="task1()">Среднее арифм полож чисел рандомного массива</button><br>
+    <button onclick="task2()">Отриц элементы массива их квадратами</button><br>
+    <button onclick="task3()">Среднее ариф полож чисел, отриц чисел, число 0</button><br>
+    <button onclick="task4()">Симуляция</button><br>
+</body>
+
+</html>

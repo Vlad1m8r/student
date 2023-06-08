@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <script>
+        let sum = (a, b) => a + b
+        let min = (a, b) => a - b
+        let multi = (a, b) => a * b
+        let del = (a, b) => a / b
+
+        let t1 = () => {
+            var a = Number(prompt("Введите 1 число"))
+            var b = Number(prompt("Введите 2 число"))
+            alert(`Сумма ${sum(a, b)}\nРазность ${min(a, b)}\nУмножение ${multi(a, b)}\nДеление ${del(a, b)}`)
+        }
+
+        let t2 = () => {
+            var a = Number(prompt("Сколько вам лет ?"))
+            var res = a < 18 ? "Нельзя" : "Можно"
+            alert(res)
+        }
+
+        let t3 = () => {
+            var a = prompt("Введите слово для проверки на палиндром")
+            var l = a.length
+
+            for (i = 0; i <= a.length; i++) {
+                if (a.charAt(i) != a.charAt(l - 1)) {
+                    alert("Не палиндром")
+                    l = -1
+                    break
+                }
+                if (i > l) {
+                    alert("Палиндром")
+                    break
+                }
+                l = l - 1
+            }
+        }
+
+        let t4 = () => {
+            var numbers = []
+
+            for (var i = 0; i < 15; i++) {
+                var randomNumber = Math.floor(Math.random() * (31 - (-10))) + (-10);
+                numbers.push(randomNumber);
+            }
+
+            var numberString = numbers.join(", ")
+            alert("Рандомный массив " + numberString)
+
+
+            var sum = numbers.reduce((a, b) => (a + b))
+            alert(`Среднее значение = ${sum / numbers.length}`)
+
+        }
+
+        let t6 = () => {
+            alert(`${empty()}`)
+        }
+
+        let empty = () => {
+
+        }
+
+        let t5 = () => {
+            const currentDate = new Date();
+            const newYear = new Date(currentDate.getFullYear() + 1, 0, 1);
+            const timeDiff = newYear - currentDate;
+            const days = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+            alert(days)
+        }
+
+        let t7 = () => {
+            var mailList = ["qwert@mail.ru","qwertyu@mail.ru","1234@mail.ru","poiuy@mail.ru","lkjh@mail.ru"]
+
+            var ftr = prompt("Введите значение фильтра для поиска")
+
+            alert(`Найдены почты ${mailList.filter(elem => elem.includes(ftr)).join("\n")}`)
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="t1()">Калькулятор</button>
+    <button onclick="t2()">Тернарный оператор</button>
+    <button onclick="t3()">Палиндром</button>
+    <button onclick="t4()">Среднее значение в массиве</button>
+    <button onclick="t5()">Дней до нового года</button>
+    <button onclick="t6()">Undefined</button>
+    <button onclick="t7()">Фильтр по e-mail</button>
+</body>
+
+</html>

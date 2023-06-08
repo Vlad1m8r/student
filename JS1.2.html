@@ -1,0 +1,102 @@
+<html>
+
+<head>
+    <script>
+        function task1() {
+            var ans = Number(0)
+
+            var a = prompt("Зимой и летом одним цветом ?")
+
+            if (a.toLowerCase() == "елка") {
+                alert("Верно")
+                ans = ans + 1
+            } else {
+                alert("неверно")
+            }
+
+            var a = prompt("Зубов нет а кусается, голоса нет а поет")
+
+            if (a.toLowerCase() == "ветер") {
+                alert("верно")
+                ans = ans + 1
+            } else {
+                alert("неверно")
+            }
+
+            alert("Вы отгадали " + ans + " раз")
+
+        }
+
+        function task2() {
+            var a = prompt("Еще по одной? Введите 1 для выхода");
+
+            while (a !== "1") {
+                a = prompt("Еще по одной? Введите 1 для выхода");
+            }
+
+            alert("Спасибо! Приятного застолья!");
+
+        }
+
+        function task3() {
+            var a = Number(prompt("Введите число для факториала"))
+            var sum = 1;
+            for (i = 1; i <= a; i++) {
+                sum = sum * i
+            }
+            alert(sum)
+        }
+
+        function task4() {
+            var a = prompt("Введите слово для проверки на палиндром")
+            var l = a.length
+
+            for (i = 0; i <= a.length; i++) {
+                if (a.charAt(i) != a.charAt(l - 1)) {
+                    alert("Не палиндром")
+                    l = -1
+                    break
+                }
+                if (i > l) {
+                    alert("Палиндром")
+                    break
+                }
+                l = l - 1
+            }
+        }
+
+        function task5() {
+            var number = parseInt(prompt("Введите число:"))
+            var primes = [];
+
+            for (var i = 2; i <= number; i++) {
+                if (isPrime(i)) {
+                    primes.push(i)
+                }
+            }
+
+            var a = ("Простые числа от 1 до" + number + ": " + primes.join(", "))
+            alert(a)
+
+
+        }
+        function isPrime(num) {
+            for (var j = 2; j < num; j++) {
+                if (num % j == 0) {
+                    return false;
+                }
+            }
+            return num > 1;
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="task1()">Загадки</button><br>
+    <button onclick="task2()">Застолье</button><br>
+    <button onclick="task3()">Факториал</button><br>
+    <button onclick="task4()">Палиндром</button><br>
+    <button onclick="task5()">Простые числа</button><br>
+</body>
+
+</html>

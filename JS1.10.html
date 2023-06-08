@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <style>
+        H1 {
+            font-size: 120%;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            color: #333366;
+            width: 150px;
+            margin: auto;
+        }
+
+        table {
+            margin: auto;
+        }
+        div{
+            margin: auto;
+            width: 150px;
+        }
+    </style>
+
+    <meta http-equiv="Content-Type" cosntent="text/html;charset=utf-8">
+    <script>
+        function Complete1() {
+            if (document.Sel3.Pwd.value == document.Sel3.Pwd1.value)
+                alert("Вас зарегистрировали\nID=" + document.Sel3.Id.value + "\nPassword=" + document.Sel3.Pwd.value);
+            else
+                alert("Ошибка при вводе пароля\nПопробуйте еще раз");
+        }
+    </script>
+</head>
+
+<body>
+    <H1>Регистрация</H1>
+    <FORM NAME="Sel3">
+        <TABLE>
+            <TR>
+                <TD><B>Идентификатор:<B></TD>
+                <TD><INPUT NAME="Id" SIZE=20 onBlur="this.value=this.value.toUpperCase()"></TD>
+            </TR>
+            <TR>
+                <TD><B>Пароль:<B></TD>
+                <TD><INPUT TYPE="password" NAME="Pwd" SIZE=20 onFocus="this.select();"></TD>
+            </TR>
+            <TR>
+                <TD><B>Проверка пароля:<B></TD>
+                <TD><INPUT TYPE="password" NAME="Pwd1" SIZE=20 onFocus="this.select();"></TD>
+            </TR>
+        </TABLE>
+        <div>
+            <INPUT TYPE="button" VALUE="Готово" onClick="Complete1();">
+            <INPUT TYPE="reset" VALUE="Сброс">
+        </div>
+    </FORM>
+</body>
+
+</html>

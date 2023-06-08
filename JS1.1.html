@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <script>
+        function task1() {
+
+            var a = prompt("Введите 1 число")
+            var b = prompt("Введите 2 число")
+
+            a = Number(a)
+            b = Number(b)
+
+            var sum = a + b
+            var min = a - b
+            var mul = a * b
+            var del = a / b
+
+            alert(a + " + " + b + " = " + sum)
+            alert(a + " - " + b + " = " + min)
+            alert(a + " * " + b + " = " + mul)
+            alert(a + " / " + b + " = " + del)
+        }
+
+        function task2() {
+            var num = Number(prompt("Задумайта число умножте его на 2 и прибавьте к нему 7. Сколько вышло ?"))
+            num = (num - 7) / 2
+            alert("Вы загадали - " + num)
+        }
+
+        function task3() {
+            var name = prompt("Введите ваше имя:");
+
+            var birthYear = prompt("Введите год вашего рождения:");
+
+            var currentYear = new Date().getFullYear();
+            var age = currentYear - birthYear;
+
+            document.write(name + ": " + age);
+        }
+    </script>
+</head>
+
+<body>
+
+    <button onclick="task1()">Калькулятор для 2 чисел</button><br>
+    <button onclick="task2()">Угадать число</button><br>
+    <button onclick="task3()">Дата рождения</button>
+
+</body>
+
+</html>

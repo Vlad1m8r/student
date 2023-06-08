@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <script>
+        let t1 = () => {
+            var arr = [1, 2, 3, 4, 5]
+            var arrAdTen = arr.map(el => el + 10)
+            var arrMultiThree = arr.map(el => el * 3)
+
+            alert(`Массив ${arr}`)
+            alert(`Массив + 10 : ${arrAdTen}`)
+            alert(`Массив * 3 : ${arrMultiThree}`)
+        }
+
+        let t2 = () => {
+            var years = [1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002]
+            const currentYear = new Date().getFullYear();
+
+            alert(`${years.map(elem => currentYear - elem)};`)
+        }
+
+        let t3 = () => {
+            const persons = [
+                { name: 'Peter', age: 16 },
+                { name: 'Mark', age: 18 },
+                { name: 'John', age: 27 },
+                { name: 'Jane', age: 14 },
+                { name: 'Tony', age: 24 },
+            ]
+
+            const fullAge = persons.filter(person => person.age >= 18).map(el => el.name);
+            alert(`Итоговый массив: ${fullAge.join(", ")}`)
+
+        }
+
+        let t4 = () => {
+            const persons = [
+                { name: 'Peter', mark: [16, 3, 5, 6] },
+                { name: 'Mark', mark: [18, 3, 6, 7] },
+                { name: 'John', mark: [27, 5, 6, 7] },
+                { name: 'Jane', mark: [14, 345, 5345, 534] },
+                { name: 'Tony', mark: [24, 5, 5, 5, 3, 3, 3, 3, 3] },
+            ]
+
+            var t = persons.map(el => `${el.name} - ${el.mark.reduce((a, b) => a + b) / el.mark.length}`)
+            alert(`${t.join("\n")}`)
+        }
+
+        const strArray = ['JavaScript', 'Python', 'PHP', 'Java', 'Casdfasdfasd'];
+
+        function sup(arr, fn) {
+            const newArray = [];
+            for (let i = 0; i < arr.length; i++) {
+                newArray.push(
+                    fn(arr[i]) > 3 ? 1 : 0
+                );
+            }
+            return newArray;
+        }
+
+        let t5 = () => {
+            const lenArray = sup(strArray, function (item) {
+                return item.length;
+            });
+            alert(lenArray);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <button onclick="t1()">Массивы</button>
+    <button onclick="t2()">Года</button>
+    <button onclick="t3()">Старше 18</button>
+    <button onclick="t4()">Средний балл</button>
+    <button onclick="t5()">Высшая</button>
+</body>
+
+</html>

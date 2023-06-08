@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <script>
+        function getRandomCard() {
+            var cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+            var randomIndex = Math.floor(Math.random() * cards.length);
+            return cards[randomIndex];
+        }
+
+        function getHandSum(hand) {
+            var sum = 0;
+            var hasAce = false;
+
+            for (var i = 0; i < hand.length; i++) {
+                var card = hand[i];
+                if (card === "A") {
+                    sum += 11;
+                    hasAce = true;
+                } else if (card === "K" || card === "Q" || card === "J") {
+                    sum += 10;
+                } else {
+                    sum += parseInt(card);
+                }
+            }
+
+            if (hasAce && sum > 21) {
+                sum -= 10;
+            }
+
+            return sum;
+        }
+
+        function playBlackjack() {
+            var playerHand = [];
+            var dealerHand = [];
+
+            playerHand.push(getRandomCard());
+            playerHand.push(getRandomCard());
+            dealerHand.push(getRandomCard());
+            dealerHand.push(getRandomCard());
+
+            var playerSum = getHandSum(playerHand);
+            var dealerSum = getHandSum(dealerHand);
+
+            alert(`Рука игрока: ${playerHand.join(" ")}\n
+            Сумма карт игрока: ${playerSum}\n
+            Рука диллера: ${dealerHand[0]} *`)
+
+            if (playerSum === 21 && dealerSum === 21) {
+                alert("Ничья. У обоих натуральный блэкджек!");
+                return;
+            } else if (playerSum === 21) {
+                alert("Игрок выиграл. У него натуральный блэкджек!");
+                return;
+            } else if (dealerSum === 21) {
+                alert("Дилер выиграл. У него натуральный блэкджек!");
+                return;
+            }
+
+            while (playerSum < 21) {
+                var choice = prompt("Хотите взять еще карту? (Да/Нет)");
+
+                if (choice.toLowerCase() === "да") {
+                    var newCard = getRandomCard();
+                    playerHand.push(newCard);
+                    playerSum = getHandSum(playerHand);
+                    alert(`Рука игрока: ${playerHand.join(" ")}\n
+                        Сумма карт игрока: ${playerSum}\n`)
+                } else {
+                    break;
+                }
+            }
+
+            while (dealerSum < 17) {
+                var newCard = getRandomCard();
+                dealerHand.push(newCard);
+                dealerSum = getHandSum(dealerHand);
+                alert("Дилер получил карту: " + newCard);
+            }
+
+            alert(`Рука игрока: ${playerHand.join(" ")}\n
+            Сумма карт игрока: ${playerSum}\n
+            Рука диллера: ${dealerHand.join(" ")}\n
+            Сумма карт диллера: ${dealerSum}`)
+
+            if (playerSum > 21) {
+                alert("Игрок проиграл. Сумма карт больше 21.");
+            } else if (dealerSum > 21) {
+                alert("Игрок выиграл. Сумма карт дилера больше 21.");
+            } else if (playerSum > dealerSum) {
+                alert("Игрок выиграл. Сумма карт игрока больше суммы карт дилера.");
+            } else if (playerSum < dealerSum) {
+                alert("Игрок проиграл. Сумма карт игрока меньше суммы карт дилера.");
+            } else {
+                alert("Ничья. Сумма карт игрока и дилера одинаковая.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="playBlackjack()">Игра в блэк-джек</button>
+</body>
+
+</html>
